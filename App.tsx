@@ -6,6 +6,9 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import HomeScreen from './screens/HomeScreen';
 import Headers from './screens/Headers';
 import { useColorScheme } from 'react-native';
+import ProductScreen from './screens/ProductScreen';
+import ShoppingCard from './screens/ShoppingCard';
+import AddressForm from './screens/AddressForm';
 
 const App =()=> {
   
@@ -16,8 +19,12 @@ const App =()=> {
     return (
       <SafeAreaView  style={backgroundStyle}>
         <StatusBar  />
-        <Headers></Headers>
-        <HomeScreen/>
+        {/* <Headers></Headers> */}
+        {/* <HomeScreen/> */}
+        {/* <ProductScreen></ProductScreen> */}
+        {/* <ShoppingCard></ShoppingCard> */}
+        <AddressForm></AddressForm>
+        
       </SafeAreaView>
     );
   }
