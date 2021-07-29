@@ -9,7 +9,7 @@ interface Buttonprops{
 
 const Buttons =({text,onPress,containerStyles}:Buttonprops)=>{
     return(
-        <Pressable onPress={onPress} style={styles.root} style={[styles.root,containerStyles]}>
+        <Pressable onPress={onPress}  style={[styles.root,containerStyles]}>
             <Text style={styles.text}>{text}</Text>
         </Pressable>
     )

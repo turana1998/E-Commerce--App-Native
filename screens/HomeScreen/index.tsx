@@ -3,7 +3,7 @@ import React from "react";
 import { View,StyleSheet, FlatList } from "react-native";
 import ProductItem from "../../components/ProductItem";
 import products from "../../data/products";
-const HomeScreen = () => {
+const HomeScreen = ({svalue}:{svalue:string}) => {
     return (
         <View style={styles.page}>
            {/* <ProductItem item={products[0]}></ProductItem> */}

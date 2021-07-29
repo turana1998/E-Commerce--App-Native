@@ -4,7 +4,13 @@ import { View,StyleSheet, FlatList ,Text} from "react-native";
 import ShopItem from '../../components/ShopItem'
 import products from "../../data/card";
 import Buttons from "../../components/Button";
+import {useNavigation} from '@react-navigation/native';
 const ShoppingCard = () => {
+   const navigation=useNavigation();
+
+   const oncheckout=()=>{
+      navigation.navigate('AddressForm')
+   }
    const totalPrice=products.reduce((summed,product)=>(
        summed+product.item.price*product.quantity
    ),0)
@@ -14,7 +20,7 @@ const ShoppingCard = () => {
                 <Text style={{fontSize:18}}>Subtotal ({products.length}): 
                 {' '}
                 <Text style={{color:'#e47911',fontWeight:'bold'}}>${totalPrice.toFixed(2)}</Text></Text>
-                <Buttons  text={"Proceed to checkout"} onPress={()=>console.warn("checkout")}
+                <Buttons  text={"Proceed to checkout"} onPress={oncheckout}
                 containerStyles={{backgroundColor:"#f7e300",borderColor:"#c7b702" }}
                 ></Buttons>
             </View>

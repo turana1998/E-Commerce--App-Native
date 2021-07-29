@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
-import { View ,StyleSheet,Image,Text } from "react-native";
-
+import { View ,StyleSheet,Image,Text, Pressable } from "react-native";
+import {useNavigation} from '@react-navigation/native';
 interface ProductItemProps{
     item:{
         id:string;
@@ -13,10 +13,14 @@ interface ProductItemProps{
         oldPrice:number;
     }
 }
-
 const ProductItem=({item}:ProductItemProps)=>{
+
+    const navigation=useNavigation();
+    const onPress=()=>{
+      navigation.navigate('ProductDetail')
+    }
     return (
-        <View style={styles.root}>
+        <Pressable onPress={onPress} style={styles.root}>
         <Image style={styles.image} source={{ uri: item.image }}></Image>
         <View style={styles.right}>
             <Text style={styles.title} numberOfLines={3}>{item.title}</Text>
@@ -34,7 +38,7 @@ const ProductItem=({item}:ProductItemProps)=>{
                {item.oldPrice && <Text style={styles.oldPrice}>${item.oldPrice}</Text>}
             </Text>
         </View>
-    </View>
+    </Pressable>
     )
 };
 

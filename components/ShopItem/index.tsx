@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, Pressable } from "react-native";
 import QuantitySelector from '../QuantitySelector';
+import {useNavigation} from '@react-navigation/native'
 interface ShopItemProps {
     carditem: {
         id: string;
@@ -20,10 +21,14 @@ interface ShopItemProps {
 }
 
 const ShopItem = ({ carditem }: ShopItemProps) => {
+    const navigation=useNavigation();
+    const onPress=()=>{
+      navigation.navigate('ProductDetail')
+    }
     const { quantity: quantityProp, item } = carditem;
     const [quantity, setQuantity] = useState(quantityProp);
     return (
-      <View style={styles.root}>
+      <Pressable style={styles.root} onPress={onPress}>
             <View  style={styles.row}>
             <Image style={styles.image} source={{ uri: item.image }}></Image>
             <View style={styles.right}>
@@ -48,7 +53,7 @@ const ShopItem = ({ carditem }: ShopItemProps) => {
            <QuantitySelector  quantity={quantity} setQuantity={setQuantity}></QuantitySelector>
         </View>
        
-      </View>
+      </Pressable>
     )
 };
 
